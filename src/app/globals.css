@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/*
+ * Palette follows the editorial reference: a warm off-white page ground with
+ * near-black type, plus a deep ink bar for the nav lifted from the clinical
+ * reference. Deliberately restrained -- with no product photography available,
+ * type and whitespace carry the entire design.
+ */
+@theme {
+  --color-bone: #eeede9;
+  --color-bone-deep: #e4e2dc;
+  --color-ink: #16171a;
+  --color-ink-soft: #5c5e63;
+  --color-ink-faint: #8e9096;
+  --color-hairline: #d8d6cf;
+  --color-accent: #1f3d34;
+  --color-accent-bright: #d7f26a;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+
+  --radius-card: 18px;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* The nav is sticky; anchored jumps must clear it. */
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reference headlines are optically tight at display sizes. */
+.display {
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
