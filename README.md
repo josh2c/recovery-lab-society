@@ -1,5 +1,7 @@
 # The Recovery Lab Society — catalog site
 
+**Live:** https://josh2c.github.io/recovery-lab-society/
+
 Static catalog site. Customers browse products and pricing, build an inquiry
 list, and email it to the seller. **There is no checkout, cart purchase, payment
 processing, or online transaction flow anywhere in this codebase**, by design.
@@ -9,6 +11,18 @@ npm install
 npm run dev      # http://localhost:3000
 npm run build    # static export -> ./out
 ```
+
+## Deployment
+
+Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds the
+static export and publishes it to GitHub Pages. The Pages source must be set to
+**GitHub Actions** (not "Deploy from a branch") or Pages serves this README
+through Jekyll instead of the app.
+
+Because the site is served from `/recovery-lab-society` rather than a domain
+root, the workflow passes `BASE_PATH` into the build so assets and links are
+prefixed. Moving to a custom domain at the root means dropping that env var
+from the workflow — nothing else changes.
 
 ## Before launch — required
 
